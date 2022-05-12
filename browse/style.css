@@ -1,0 +1,88 @@
+/*For this project I'm implementing different things in my css calc(var(--hue) - 4)*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
+
+:root {
+    --hue:177; /* try with 270, 70*/
+    --main-color: hsl(calc(var(--hue) - 177), 0%, 100%);
+    --seondary-color: hsl(var(--hue), 63%, 40%);
+    --button-hover: hsl(170, 40%, 58%);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: var(--main-color);
+    font-weight: 500;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: var(--seondary-color);
+}
+
+.drag-area {
+    border: 2px dashed var(--main-color);
+    height: 31.25rem;  /* 500/16 = 31.35rem*/
+    width: 43.75rem;
+
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;   
+}
+
+.drag-area.active {
+    border: 2px solid var(--main-color);
+    transition: 200ms;
+}
+
+.icon:nth-child(1) {
+    font-size: 6.25rem;
+}
+
+.drag-area header {
+    font-size: 1.875rem;
+}
+
+.drag-area span {
+    font-size: 1.5625rem;
+    margin: 0.625rem 0 0.9375rem 0; 
+}
+
+.drag-area button {
+    padding: 0.625rem 1.5625rem;
+    font-size: 1.25rem ;
+
+    border: none;
+    border-radius: 8px;
+    outline: none;
+
+    color: var(--seondary-color);
+    background: var(--main-color);
+
+    cursor: pointer;
+}
+
+.drag-area button:hover {
+    background: var(--button-hover);
+    color: var(--main-color);
+    box-shadow: 2px 2px var(--main-color);
+
+    transition: 400ms;
+}
+
+.drag-area img {
+    height: 100%;
+    width: 100%;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+}

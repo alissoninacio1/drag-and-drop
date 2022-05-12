@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;1,500&display=swap');
+
+html {
+    font-family: 'Nunito', sans-serif;
+}
+
+body {
+    background-color: #130f0d;
+    color: white;
+}
+
+.boards {
+    display: flex;
+
+    margin-top: 32px;
+}
+
+.board {
+    background: #141316;
+    border: 1px solid #FD951F11;
+    border-radius: 4px;
+
+    margin: 0 16px;
+}
+
+.board h3 {
+    padding: 16px;
+    margin: 0;
+    color: #fcf806;
+}
+
+.dropzone {
+    padding: 16px;
+    min-width: 282px;  /*I'm a leaving a min-width because when I'm goin to drag and drop the element, If this box is too small, it won't let me do it*/
+    min-height: 200px;
+}
+
+.card {
+    background-color: #3b3b3b;
+    padding: 16px;
+    box-shadow: 0 2px 2px -1px #abd103cc; /*only the bottom border will be showed with the stronger coloration */
+    width: 250px;
+    margin: 25px 0;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.status {
+    width: 30px;
+    height: 8px;
+    background-color: gray;
+    margin-bottom: 16px;
+    border-radius: 8px;
+}
+
+.status.green {
+    background: #23d2ac;
+}
+
+.status.blue {
+    background: #33adff;
+}
+
+.status.red {
+    background: red;
+}
+
+/*
+----------difference between class syntax---------------
+
+Example:
+    together - .status.green  - it refers to .status element that also has a class called .green
+    separated - .status .green  - it refers to any element descendant(child) that has .green class  
+
+*/
+
+/*class that will be added when the element in dragging over*/
+.highlight {
+    background-color: #2b2725;
+}
+
+.card, .dropzone {
+    transition: 300ms;
+}
+
+.is-dragging {
+    cursor:move;
+    opacity: 0.2;
+}
+
+.over {
+    background-color: #041102;
+}
