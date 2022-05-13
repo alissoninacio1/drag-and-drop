@@ -1,0 +1,74 @@
+/*
+when toggle, it will aply the concepts of change colors using the hue first component as varable
+this will be change the background color also
+*/
+
+:root {
+    --hue:207;
+    --toggle-color: hsl(var(--hue), 100%, 73%);
+    --background-change: hsl(calc(var(--hue) + 93), 100%, 73%);
+    
+
+    --transition-btn: all 300ms linear;
+    --transition-color: 0.5s ease-in;
+
+    
+}
+
+body {
+    background: var(--toggle-color);
+    transition: var(--transition-color);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    height: 100vh;
+}
+
+#toggle-btn{
+    position: relative;
+    display: block;
+    width: 6.25rem;
+    height: 3.125rem;
+    background: #fff;
+    border-radius: 30px;
+    border: none; 
+
+    margin-top: 50vh; /*easy way to put elements on screen center, if the father or body has a height of 100vh*/
+}
+
+#toggle-btn:hover {
+    box-shadow: inset 0 0 0 1px #dfdfdf;
+    cursor: pointer;
+    transition: 0.25s ease-out 0.25s;
+}
+
+.container {
+    position: relative;
+    display: block;
+    content: "";
+
+    width: 2.5rem;
+    height: 2.5rem;
+
+    background: var(--toggle-color);
+    border-radius: 50%;
+
+    left: 5px;
+
+    transition: var(--transition-btn);
+}
+
+
+.containerOn {
+    left: 45px;
+    transition: var(--transition-btn) ;
+    background-color: var(--background-change);
+}
+
+
+.body-color {
+    background: var(--background-change);
+    transition: var(--transition-color);
+}
+

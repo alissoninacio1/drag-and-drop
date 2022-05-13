@@ -1,6 +1,8 @@
+/*-------------THIS IS THE DRAG & DROP AREA WITH BROWSER AREA SCRIPT ------------ */
+
 const dragArea = document.querySelector('.drag-area');
 const dragText = document.querySelector("header");
-const button = document.querySelector("button");
+const button = document.querySelector("#browse-btn");
 const input = document.querySelector("input");
 
 //this global variable will be used inside multiple functions
@@ -35,7 +37,7 @@ function showingFile() {
     }
 }
 
-//if the user click on the button, will also click on the input
+//if the user click on the button, will also click on the input (the input will work)
 // () => {}  is an Anonymous function
 button.addEventListener('click', () => {
     input.click()
@@ -80,3 +82,25 @@ dragArea.addEventListener('drop', event => {
     showingFile()
 } )
 
+/** -------------THIS IS THE TOGGLE AREA SCRIPT----AN IMPLEMENTATION FROM ANOTHER CODE-------*/
+
+const toggle = document.querySelector('#toggle-btn');
+const circle = document.querySelector('.container');
+const body = document.querySelector('body');
+
+//this event will be in the button, so I can use with clicks
+toggle.addEventListener('click', toggleFunction);
+
+
+//now, I can toggle with the button changing the circle position and color and the body color using transitions
+
+/**
+ * The toggle() method of the DOMTokenList interface removes an existing token from the list and returns false.
+ *  If the token doesn't exist it's added and the function returns true.
+ */
+function toggleFunction() {
+  circle.classList.toggle('containerOn');
+  body.classList.toggle('body-color');
+  button.classList.toggle('active');
+
+}

@@ -1,13 +1,29 @@
 /*For this project I'm implementing different things in my css calc(var(--hue) - 4)*/
 
+
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
 
 :root {
+
+    /* ---Drag & Drop variables---*/
+
     --hue:177; /* try with 270, 70*/
     --main-color: hsl(calc(var(--hue) - 177), 0%, 100%);
-    --seondary-color: hsl(var(--hue), 63%, 40%);
-    --button-hover: hsl(170, 40%, 58%);
+    --secondary-color: hsl(var(--hue), 63%, 40%);
+    --button-hover: #252c2b;
+
+
+    /* ---toggle variables---*/
+    --background-change: hsl(calc(var(--hue) + 93), 100%, 73%);
+    
+
+    --transition-btn: all 300ms linear;
+    --transition-color: 0.5s ease-in;
 }
+
+
+
 * {
     margin: 0;
     padding: 0;
@@ -17,12 +33,16 @@
     font-weight: 500;
 }
 
+/*--------------------THIS IS THE DRAG & DROP AREA STYLE--------------------*/
+
 body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
     min-height: 100vh;
-    background: var(--seondary-color);
+    background: var(--secondary-color);
 }
 
 .drag-area {
@@ -64,7 +84,7 @@ body {
     border-radius: 8px;
     outline: none;
 
-    color: var(--seondary-color);
+    color: var(--secondary-color);
     background: var(--main-color);
 
     cursor: pointer;
@@ -73,7 +93,7 @@ body {
 .drag-area button:hover {
     background: var(--button-hover);
     color: var(--main-color);
-    box-shadow: 2px 2px var(--main-color);
+    box-shadow: 1px 1px var(--main-color);
 
     transition: 400ms;
 }
@@ -86,3 +106,65 @@ body {
 
     border-radius: 8px;
 }
+
+
+
+
+/*--------------------THIS IS THE TOGGLE AREA STYLE--------------------*/
+
+body {
+    background: var(--secondary-color);
+    transition: var(--transition-color);
+}
+
+#toggle-btn{
+    position: relative;
+    display: block;
+    width: 6.25rem;
+    height: 3.125rem;
+    background: #fff;
+    border-radius: 30px;
+    border: none; 
+}
+
+#toggle-btn:hover {
+    box-shadow: inset 0 0 0 1px #c5c5c5;
+    cursor: pointer;
+    transition: 0.25s ease-out 0.10s;
+}
+
+.container {
+    position: relative;
+    display: block;
+    content: "";
+
+    width: 2.5rem;
+    height: 2.5rem;
+
+    background: var(--secondary-color);
+    border-radius: 50%;
+
+    left: 5px;
+
+    transition: var(--transition-btn);
+}
+
+
+.containerOn {
+    left: 55px;
+    transition: var(--transition-btn) ;
+    background-color: var(--background-change);
+}
+
+
+.body-color {
+    background: var(--background-change);
+    transition: var(--transition-color);
+}
+
+.drag-area button.active {
+    color: var(--background-change);
+}
+
+
+
